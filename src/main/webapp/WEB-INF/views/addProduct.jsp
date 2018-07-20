@@ -1,14 +1,14 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@include file="/WEB-INF/views/templates/header.jsp"%>
 
-</br>
+<br/>
 <!--start-breadcrumbs-->
 <div class="breadcrumbs">
     <div class="container">
         <div class="breadcrumbs-main">
             <ol class="breadcrumb">
                 <li><a href="<c:url value="/admin"/>">Admin</a></li>
-                <li><a href="<c:url value="/productInventory"/>">Product Inventory</a></li>
+                <li><a href="<c:url value="/admin/productInventory"/>">Product Inventory</a></li>
                 <li class="active">Add Product</li>
             </ol>
         </div>
@@ -71,7 +71,7 @@
             </label>
         </div>
 
-        </br></br>
+        <br/><br/>
 
         <input type="submit" value="submit" class="btn btn-default">
         <a href="<c:url value="/admin/productInventory"/>" class="btn btn-default">Cancel</a>

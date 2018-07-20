@@ -41,22 +41,46 @@
 <div class="header-bottom">
     <div class="container">
         <div class="header">
-            <div class="col-md-10 header-left">
-                <div class="top-nav">
-                    <ul class="memenu skyblue">
-                        <li class="active"><a href="<c:url value="/"/>">Home</a></li>
-                        <li class="grid"><a href="<c:url value="/productList"/>">Products</a></li>
-                        <li class="grid"><a href="">About</a></li>
-                        <li class="grid"><a href="">Contact</a></li>
+
+            <c:if test="${pageContext.request.userPrincipal.name != null}">
+                <div class="col-md-8 header-left">
+                    <div class="top-nav">
+                        <ul class="memenu skyblue">
+                            <li class="active"><a href="<c:url value="/"/>">Home</a></li>
+                            <li class="grid"><a href="<c:url value="/productList"/>">Products</a></li>
+                            <li class="grid"><a href="<c:url value="/admin/productInventory"/>">Product Inventory</a></li>
+                            <li class="grid"><a href="<c:url value="/admin/productInventory/addProduct"/>">Add Product</a></li>
+                            <li class="grid"><a href="">About</a></li>
+                            <li class="grid"><a href="">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="col-md-3 top-header-right">
+                    <ul class="memenu skyblue header-right">
+                <li class="grid">
+                    Welcome: ${pageContext.request.userPrincipal.name} | <a href="<c:url value="/j_spring_security_logout"/>">Logout</a>
+                </li>
+            </c:if>
+            <c:if test="${pageContext.request.userPrincipal.name == null}">
+                <div class="col-md-10 header-left">
+                    <div class="top-nav">
+                        <ul class="memenu skyblue">
+                            <li class="active"><a href="<c:url value="/"/>">Home</a></li>
+                            <li class="grid"><a href="<c:url value="/productList"/>">Products</a></li>
+                            <li class="grid"><a href="">About</a></li>
+                            <li class="grid"><a href="">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="col-md-1 top-header-right">
+                    <ul class="memenu skyblue header-right">
+                        <li class="grid"><a href="<c:url value="/login"/>">Login</a></li>
                     </ul>
                 </div>
-                <div class="clearfix"> </div>
-            </div>
-            <div class="col-md-1 top-header-right">
-                <ul class="memenu skyblue header-right">
-                    <li class="grid"><a href="<c:url value="/admin"/>">Admin</a></li>
-                </ul>
-            </div>
+            </c:if>
+
             <div class="col-md-1 top-header-right">
                 <div class="cart box_1">
                     <a href="#">
